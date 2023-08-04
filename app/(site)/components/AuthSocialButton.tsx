@@ -1,13 +1,13 @@
 import { IconType } from "react-icons";
 interface AuthSocialButtonProps {
-    icon:IconType;
-    onClick: () => void;
-    
-  }
-const AuthSocialButton = ({icon:Icon,onClick}:AuthSocialButtonProps) => {
+  icon: IconType;
+  onClick: () => void;
+
+}
+const AuthSocialButton = ({ icon: Icon, onClick }: AuthSocialButtonProps) => {
   return (
     <button
-    className="
+      className="
         inline-flex
         w-full 
         justify-center 
@@ -22,18 +22,12 @@ const AuthSocialButton = ({icon:Icon,onClick}:AuthSocialButtonProps) => {
         ring-gray-300 
         hover:bg-gray-50 
         focus:outline-offset-0
+        cursor-not-allowed
       "
-    type="button"
-    onClick={onClick}
-
-    
-    
+      type="button"
+      onClick={onClick}
     >
-
-        <Icon/>
-
-
-
+      <Icon />
     </button>
   )
 }
