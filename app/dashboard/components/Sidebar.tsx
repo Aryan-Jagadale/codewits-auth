@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-import { MdSpaceDashboard, MdOutlineChatBubbleOutline } from "react-icons/md";
-
+import { signOut } from "next-auth/react"
+import { MdSpaceDashboard } from "react-icons/md";
+import {BiLogOut} from "react-icons/bi"
 
 
 const Sidebar = () => {
@@ -13,6 +13,7 @@ const Sidebar = () => {
 
   const menus = [
     { title: "Dashboard", src: <MdSpaceDashboard />, link: "/dashboard" },
+    
 
 
     
@@ -38,7 +39,7 @@ const Sidebar = () => {
     <div className="flex gap-x-4 items-center">
       <Image
         src={"/images/logo.png"}
-        className={`cursor-pointer duration-500 ${open && "rotate-[360deg]"}`}
+        className={`cursor-pointer duration-500 ${open && "scale-100"}`}
         alt={"logo"}
         width={50}
         height={50}
@@ -74,6 +75,27 @@ const Sidebar = () => {
         </li>
       ))}
     </ul>
+
+    
+    <div className="absolute bottom-4 w-full">
+    <li
+          
+          className={`flex  rounded-md p-2 font-medium cursor-pointer  text-slate-500   text-base items-center gap-x-4 `}
+          onClick={() => signOut({ callbackUrl: 'http://localhost:3000/' })}
+           
+        >
+          
+            <p className=""><BiLogOut/></p>
+          
+          
+            <span className={`${!open && "hidden"} origin-left duration-200`}>
+              Logout
+            </span>
+          
+        </li>
+    </div>
+
+
   </div>
   );
 };
